@@ -24,10 +24,6 @@ compileJava{
     options.compilerArgs=['-parameters']
 }
 
-springBoot {
-    executable = true
-}
-
 dependencyManagement {
     imports {
         mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Dalston.SR1'
@@ -38,8 +34,9 @@ configurations{
     all*.exclude group:'org.apache.tomcat.embed',module:'tomcat-embed-el'
 }
 dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.boot:spring-boot-starter-undertow'
-    compile 'org.springframework.cloud:spring-cloud-config-server'
+    compile 'org.springframework.cloud:spring-cloud-config-client'
     compile 'org.springframework.boot:spring-boot-starter-security'
 }
 
