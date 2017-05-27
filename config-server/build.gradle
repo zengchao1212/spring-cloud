@@ -1,0 +1,45 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.2.RELEASE'
+    }
+    repositories {
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+group 'com.xiangyi.cloud'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility=JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+compileJava{
+    options.compilerArgs=['-parameters']
+}
+
+dependencyManagement {
+    imports {
+        mavenBom 'org.springframework.cloud:spring-cloud-dependencies:Dalston.SR1'
+    }
+}
+configurations{
+    all*.exclude group:'org.springframework.boot',module:'spring-boot-starter-tomcat'
+    all*.exclude group:'org.apache.tomcat.embed',module:'tomcat-embed-el'
+}
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-undertow'
+    compile 'org.springframework.cloud:spring-cloud-config-server'
+}
+
+repositories {
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
+}
+
+

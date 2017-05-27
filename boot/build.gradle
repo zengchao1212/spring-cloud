@@ -1,0 +1,47 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.2.RELEASE'
+    }
+    repositories {
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+}
+group 'com.xiangyi.cloud'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+compileJava{
+    options.compilerArgs=['-parameters']
+}
+test{
+    scanForTestClasses=false
+    ignoreFailures=true
+}
+configurations{
+    all*.exclude group:'org.springframework.boot',module:'spring-boot-starter-tomcat'
+    all*.exclude group:'org.apache.tomcat.embed',module:'tomcat-embed-el'
+}
+repositories {
+    maven {
+        url 'http://maven.aliyun.com/nexus/content/groups/public/'
+    }
+}
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.8.4'
+    compile 'org.apache.httpcomponents:httpclient:4.5.2'
+    compile 'org.springframework.boot:spring-boot-starter-undertow'
+    compile 'org.springframework.boot:spring-boot-devtools'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'junit:junit:4.12'
+}
