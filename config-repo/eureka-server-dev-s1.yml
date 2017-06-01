@@ -1,0 +1,6 @@
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://admin:admin321@10.0.5.101:8761/eureka
