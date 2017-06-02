@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: service1
+  cloud:
+    config:
+      failFast: true
+      uri: http://admin:admin321@10.0.5.100:8888/config

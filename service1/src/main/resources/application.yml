@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+security:
+  user:
+    name: admin
+    password: admin321
+
+eureka:
+  client:
+    healthcheck：
+      enabled: true
+    serviceUrl:
+      defaultZone: http://admin:admin321@10.0.5.100:8761/eureka
+
+feign:
+  httpclient:
+    enabled: true
+
+auth:
+  user: admin
+  password: admin321
