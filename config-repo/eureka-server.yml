@@ -5,3 +5,7 @@ security:
   user:
     name: admin
     password: admin321
+
+eureka:
+  server:
+    enableSelfPreservation: false
