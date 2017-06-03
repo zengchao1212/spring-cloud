@@ -13,8 +13,8 @@ import java.util.Map;
  */
 @FeignClient(value = "service1",configuration = RemoteServiceConfiguration.class)
 public interface RemoteService {
-    @RequestMapping(value = "info",method = RequestMethod.GET)
+    @RequestMapping(value = "test/info",method = RequestMethod.GET)
     Map<String,String> info();
-    @RequestMapping(value = "setinfo",method = RequestMethod.POST)
+    @RequestMapping(value = "test/setinfo",method = RequestMethod.POST)
     Map<String,String> setInfo(@RequestBody Map<String,String> newInfo);
 }

@@ -15,6 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * Created by bobo on 2017/6/2.
  */
 @RestController
+@RequestMapping("test")
 public class TestController {
 
     @Autowired

@@ -8,10 +8,10 @@ security:
 
 eureka:
   client:
-    healthcheck：
+    healthcheck:
       enabled: true
     serviceUrl:
-      defaultZone: http://admin:admin321@10.0.5.100:8761/eureka
+      defaultZone: http://admin:admin321@10.0.5.100:8761/eureka,http://admin:admin321@10.0.5.101:8761/eureka
 
 feign:
   httpclient:
